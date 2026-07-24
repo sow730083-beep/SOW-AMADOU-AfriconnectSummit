@@ -3,71 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfriConnect Summit 2026</title>
+    <title>Inscription & Contact - AfriConnect Summit 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Contenu à venir -->
-    <script src="js/main.js"></script>
-    
-    <header>
-        <nav>
-            <div class="logo">AfriConnect Summit 2026</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="programme.html">Programme</a></li>
-                <li><a href="intervenants.html">Intervenants</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button id="theme-toggle">🌙</button>
-            <div class="hamburger">☰</div>
+
+    <!-- NAVBAR COMMUNE -->
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">AfriConnect Summit 2026</a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Accueil</a>
+                <a href="programme.html">Programme</a>
+                <a href="intervenants.html">Intervenants</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button id="themeToggle" aria-label="Changer de thème"><i class="bi bi-moon-stars"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu"><i class="bi bi-list"></i></button>
+            </div>
         </nav>
     </header>
+
     <main>
-        <!-- Section Hero -->
-        <section id="hero">
-            <h1>Le plus grand rassemblement tech d'Afrique francophone</h1>
-            <p>Dakar, Sénégal · 15-17 octobre 2026</p>
-            <a href="contact.html" class="cta">S'inscrire</a>
-            <a href="programme.html" class="cta">Voir le programme</a>
-            <div id="countdown"></div>
+        <!-- HERO INTERNE -->
+        <section class="internal-hero">
+            <h1>Inscription & Contact</h1>
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="index.html">Accueil</a> &gt; <span>Contact</span>
+            </nav>
         </section>
 
-        <!-- Section Chiffres clés -->
-        <section id="stats">
-            <div class="stat" data-target="1200">0</div>
-            <div class="stat" data-target="48">0</div>
-            <div class="stat" data-target="3">0</div>
-            <div class="stat" data-target="12">0</div>
+        <!-- FORMULAIRE DE CONTACT (Deux colonnes) -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <!-- Colonne Gauche : Formulaire -->
+                <div class="contact-form-side">
+                    <h2>Réservez votre place</h2>
+                    <div id="formSuccessMessage" class="success-message" style="display: none;"></div>
+                    <form id="registrationForm" novalidate>
+                        <div class="form-group">
+                            <label for="fullName">Nom complet *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                            <span class="error-text" id="fullNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-text" id="emailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone (min 8 chiffres) *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <span class="error-text" id="phoneError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="participationType">Type de participation *</label>
+                            <select id="participationType" name="participationType" required>
+                                <option value="">Choisir une option...</option>
+                                <option value="student">Étudiant</option>
+                                <option value="professional">Professionnel</option>
+                                <option value="speaker">Intervenant potentiel</option>
+                                <option value="sponsor">Sponsor potentiel</option>
+                            </select>
+                            <span class="error-text" id="participationTypeError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Pays africain *</label>
+                            <select id="country" name="country" required>
+                                <option value="">Choisir un pays...</option>
+                                <option value="Sénégal">Sénégal</option>
+                                <option value="Mali">Mali</option>
+                                <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                                <option value="Guinée">Guinée</option>
+                                <option value="Mauritanie">Mauritanie</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Bénin">Bénin</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Cameroun">Cameroun</option>
+                            </select>
+                            <span class="error-text" id="countryError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Vos motivations (min 20 caractères) *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <span class="error-text" id="messageError"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
+                    </form>
+                </div>
+
+                <!-- Colonne Droite : Infos Pratiques -->
+                <div class="contact-info-side">
+                    <h2>Informations Pratiques</h2>
+                    <div class="info-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <p><strong>Lieu :</strong> Institut Supérieur d'Informatique (ISI), Dakar, Sénégal</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="bi bi-envelope"></i>
+                        <p><strong>Email :</strong> contact@africonnectsummit.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="bi bi-telephone"></i>
+                        <p><strong>Téléphone :</strong> +221 33 800 00 00</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Pourquoi participer -->
-        <section id="why">
-            <article>...</article>
-            <article>...</article>
-            <article>...</article>
+        <!-- FAQ ACCORDÉON (CSS PUR) -->
+        <section class="faq-section scroll-reveal">
+            <h2 class="section-title">Foire Aux Questions</h2>
+            <div class="accordion">
+                <!-- Question 1 -->
+                <div class="accordion-item">
+                    <input type="checkbox" id="faq1" class="accordion-toggle">
+                    <label for="faq1" class="accordion-header">Qui peut participer à l'événement ?</label>
+                    <div class="accordion-content">
+                        <p>L'événement est ouvert à tous : étudiants, développeurs indépendants, entrepreneurs, porteurs de projets et investisseurs intéressés par la tech en Afrique.</p>
+                    </div>
+                </div>
+                <!-- Question 2 -->
+                <div class="accordion-item">
+                    <input type="checkbox" id="faq2" class="accordion-toggle">
+                    <label for="faq2" class="accordion-header">L'inscription est-elle payante ?</label>
+                    <div class="accordion-content">
+                        <p>L'accès est gratuit pour les étudiants inscrits sur présentation de leur carte d'étudiant valide. Un tarif standard s'applique aux professionnels.</p>
+                    </div>
+                </div>
+                <!-- Question 3 -->
+                <div class="accordion-item">
+                    <input type="checkbox" id="faq3" class="accordion-toggle">
+                    <label for="faq3" class="accordion-header">Où se déroule précisément le sommet ?</label>
+                    <div class="accordion-content">
+                        <p>Le sommet se tiendra dans les locaux principaux de l'Institut Supérieur d'Informatique (ISI) à Dakar, Sénégal.</p>
+                    </div>
+                </div>
+                <!-- Question 4 -->
+                <div class="accordion-item">
+                    <input type="checkbox" id="faq4" class="accordion-toggle">
+                    <label for="faq4" class="accordion-header">Comment postuler pour être intervenant ?</label>
+                    <div class="accordion-content">
+                        <p>Il vous suffit de remplir notre formulaire de contact sur cette page en sélectionnant le type de participation "Intervenant potentiel" et en détaillant votre sujet.</p>
+                    </div>
+                </div>
+                <!-- Question 5 -->
+                <div class="accordion-item">
+                    <input type="checkbox" id="faq5" class="accordion-toggle">
+                    <label for="faq5" class="accordion-header">Un certificat de participation est-il délivré ?</label>
+                    <div class="accordion-content">
+                        <p>Oui, un certificat de participation officiel signé par le comité d'organisation d'AfriConnect Summit sera envoyé par mail à tous les participants présents.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Intervenants vedettes -->
-        <section id="speakers">
-            <!-- 4 cartes avec photo, nom, titre, pays -->
-        </section>
-
-        <!-- Sponsors -->
-        <section id="sponsors">
-            <div class="sponsor or">Or</div>
-            <div class="sponsor argent">Argent</div>
-            <div class="sponsor bronze">Bronze</div>
+        <!-- GOOGLE MAPS IFRAME -->
+        <section class="map-section">
+            <h2 class="section-title">Localisation</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.2272288330764!2d-17.45187742588147!3d14.700140774026875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec110b64db5cb65%3A0x6b801a6b0c2a5df6!2sInstitut%20Sup%C3%A9rieur%20d&#39;Informatique!5e0!3m2!1sfr!2ssn!4v1717000000000!5m2!1sfr!2ssn" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </section>
     </main>
-    <footer>
-        <div class="footer-col">...</div>
-        <div class="footer-col">...</div>
-        <div class="footer-col">...</div>
-        <p id="footer-year"></p>
-        <button id="back-to-top">↑</button>
+
+    <!-- FOOTER COMMUN -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>AfriConnect</h4>
+                <p>Le carrefour de l'écosystème numérique africain.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liens Rapides</h4>
+                <a href="index.html">Accueil</a>
+                <a href="programme.html">Programme</a>
+                <a href="intervenants.html">Intervenants</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> AfriConnect Summit. Tous droits réservés.</p>
+        </div>
+        <button id="scrollTopBtn" aria-label="Retour en haut de page"><i class="bi bi-arrow-up-short"></i></button>
     </footer>
 
-
+    <script src="js/main.js"></script>
 </body>
 </html>

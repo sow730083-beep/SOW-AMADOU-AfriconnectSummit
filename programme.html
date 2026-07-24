@@ -3,71 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfriConnect Summit 2026</title>
+    <title>Programme - AfriConnect Summit 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Contenu à venir -->
-    <script src="js/main.js"></script>
 
-    <header>
-        <nav>
-            <div class="logo">AfriConnect Summit 2026</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="programme.html">Programme</a></li>
-                <li><a href="intervenants.html">Intervenants</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button id="theme-toggle">🌙</button>
-            <div class="hamburger">☰</div>
+    <!-- NAVBAR COMMUNE -->
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">AfriConnect Summit 2026</a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Accueil</a>
+                <a href="programme.html" class="active">Programme</a>
+                <a href="intervenants.html">Intervenants</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button id="themeToggle" aria-label="Changer de thème"><i class="bi bi-moon-stars"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu"><i class="bi bi-list"></i></button>
+            </div>
         </nav>
     </header>
+
     <main>
-        <!-- Section Hero -->
-        <section id="hero">
-            <h1>Le plus grand rassemblement tech d'Afrique francophone</h1>
-            <p>Dakar, Sénégal · 15-17 octobre 2026</p>
-            <a href="contact.html" class="cta">S'inscrire</a>
-            <a href="programme.html" class="cta">Voir le programme</a>
-            <div id="countdown"></div>
+        <!-- HERO INTERNE -->
+        <section class="internal-hero">
+            <h1>Le Programme</h1>
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="index.html">Accueil</a> &gt; <span>Programme</span>
+            </nav>
         </section>
 
-        <!-- Section Chiffres clés -->
-        <section id="stats">
-            <div class="stat" data-target="1200">0</div>
-            <div class="stat" data-target="48">0</div>
-            <div class="stat" data-target="3">0</div>
-            <div class="stat" data-target="12">0</div>
+        <!-- ONGLETS ET PLANNING -->
+        <section class="schedule-section">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-day="day1">Jour 1 (15 Oct)</button>
+                <button class="tab-btn" data-day="day2">Jour 2 (16 Oct)</button>
+                <button class="tab-btn" data-day="day3">Jour 3 (17 Oct)</button>
+            </div>
+
+            <div class="schedule-content">
+                <!-- PLANNING JOUR 1 -->
+                <div class="tab-panel active" id="day1">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr><th>Heure</th><th>Session</th><th>Intervenant</th><th>Salle</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>09:00 - 10:00</td><td>Cérémonie d'ouverture</td><td>Comité d'organisation</td><td>Amphi Kounta Kinté</td></tr>
+                                <tr><td>10:15 - 11:30</td><td>L'état de la Tech en Afrique en 2026</td><td>Amina Diop</td><td>Amphi Kounta Kinté</td></tr>
+                                <tr><td>11:45 - 13:00</td><td>Web Décentralisé & Opportunités</td><td>Tariq Yusuf</td><td>Salle Cyber</td></tr>
+                                <tr><td>14:30 - 16:00</td><td>Atelier: Dev Web Moderne avec Vanilla JS</td><td>Équipe ISI</td><td>Labo Web</td></tr>
+                                <tr><td>16:15 - 17:30</td><td>Économie Numérique : Financement</td><td>Kwame Mensah</td><td>Salle VIP</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- PLANNING JOUR 2 -->
+                <div class="tab-panel" id="day2">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr><th>Heure</th><th>Session</th><th>Intervenant</th><th>Salle</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>09:30 - 11:00</td><td>IA et Souveraineté des Données</td><td>Amina Diop</td><td>Amphi Kounta Kinté</td></tr>
+                                <tr><td>11:15 - 12:45</td><td>Design Empathique pour le Mobile</td><td>Fatou Sylla</td><td>Salle Design</td></tr>
+                                <tr><td>14:00 - 15:30</td><td>Cybersécurité : Protéger nos infrastructures</td><td>Tariq Yusuf</td><td>Salle Cyber</td></tr>
+                                <tr><td>15:45 - 17:00</td><td>Panel: Les Licornes Africaines de demain</td><td>Kwame Mensah</td><td>Amphi Kounta Kinté</td></tr>
+                                <tr><td>17:15 - 18:30</td><td>Networking & Session Pitchs</td><td>Tous les incubateurs</td><td>Espace Central</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- PLANNING JOUR 3 -->
+                <div class="tab-panel" id="day3">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr><th>Heure</th><th>Session</th><th>Intervenant</th><th>Salle</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>10:00 - 11:30</td><td>Data Science appliquée à l'agriculture</td><td>Dr. Ousmane Kane</td><td>Amphi Kounta Kinté</td></tr>
+                                <tr><td>11:45 - 13:00</td><td>Futur du Travail et freelancing en Afrique</td><td>Fatou Sylla</td><td>Salle Design</td></tr>
+                                <tr><td>14:30 - 15:30</td><td>Présentation des projets étudiants</td><td>Étudiants ISI</td><td>Espace Central</td></tr>
+                                <tr><td>15:45 - 16:45</td><td>Keynote de clôture</td><td>Invité Mystère</td><td>Amphi Kounta Kinté</td></tr>
+                                <tr><td>17:00 - 18:00</td><td>Remise des prix et Cocktail</td><td>Sponsors Gold</td><td>Jardin Principal</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Pourquoi participer -->
-        <section id="why">
-            <article>...</article>
-            <article>...</article>
-            <article>...</article>
-        </section>
-
-        <!-- Intervenants vedettes -->
-        <section id="speakers">
-            <!-- 4 cartes avec photo, nom, titre, pays -->
-        </section>
-
-        <!-- Sponsors -->
-        <section id="sponsors">
-            <div class="sponsor or">Or</div>
-            <div class="sponsor argent">Argent</div>
-            <div class="sponsor bronze">Bronze</div>
+        <!-- SECTION THÉMATIQUES -->
+        <section class="themes-section scroll-reveal">
+            <h2 class="section-title">Les Grandes Thématiques</h2>
+            <div class="themes-grid">
+                <div class="theme-card">
+                    <i class="bi bi-cpu"></i>
+                    <h3>Intelligence Artificielle</h3>
+                    <p>Modèles LLM africains, traitement du langage naturel et souveraineté.</p>
+                </div>
+                <div class="theme-card">
+                    <i class="bi bi-shield-lock"></i>
+                    <h3>Cybersécurité</h3>
+                    <p>Sécurisation des architectures web et gestion critique des risques informatiques.</p>
+                </div>
+                <div class="theme-card">
+                    <i class="bi bi-palette"></i>
+                    <h3>Design & UX</h3>
+                    <p>Créer des interfaces accessibles et adaptées aux réalités des connexions locales.</p>
+                </div>
+                <div class="theme-card">
+                    <i class="bi bi-database-gear"></i>
+                    <h3>Big Data & Cloud</h3>
+                    <p>Infrastructures modernes et stockage de données à grande échelle.</p>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <div class="footer-col">...</div>
-        <div class="footer-col">...</div>
-        <div class="footer-col">...</div>
-        <p id="footer-year"></p>
-        <button id="back-to-top">↑</button>
+
+    <!-- FOOTER COMMUN -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>AfriConnect</h4>
+                <p>Le carrefour de l'écosystème numérique africain.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liens Rapides</h4>
+                <a href="index.html">Accueil</a>
+                <a href="programme.html">Programme</a>
+                <a href="intervenants.html">Intervenants</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> AfriConnect Summit. Tous droits réservés.</p>
+        </div>
+        <button id="scrollTopBtn" aria-label="Retour en haut de page"><i class="bi bi-arrow-up-short"></i></button>
     </footer>
 
-    
+    <script src="js/main.js"></script>
 </body>
 </html>

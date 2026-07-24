@@ -3,71 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfriConnect Summit 2026</title>
+    <title>Intervenants - AfriConnect Summit 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Contenu à venir -->
-    <script src="js/main.js"></script>
 
-    <header>
-        <nav>
-            <div class="logo">AfriConnect Summit 2026</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="programme.html">Programme</a></li>
-                <li><a href="intervenants.html">Intervenants</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button id="theme-toggle">🌙</button>
-            <div class="hamburger">☰</div>
+    <!-- NAVBAR COMMUNE -->
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">AfriConnect Summit 2026</a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Accueil</a>
+                <a href="programme.html">Programme</a>
+                <a href="intervenants.html" class="active">Intervenants</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button id="themeToggle" aria-label="Changer de thème"><i class="bi bi-moon-stars"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu"><i class="bi bi-list"></i></button>
+            </div>
         </nav>
     </header>
+
     <main>
-        <!-- Section Hero -->
-        <section id="hero">
-            <h1>Le plus grand rassemblement tech d'Afrique francophone</h1>
-            <p>Dakar, Sénégal · 15-17 octobre 2026</p>
-            <a href="contact.html" class="cta">S'inscrire</a>
-            <a href="programme.html" class="cta">Voir le programme</a>
-            <div id="countdown"></div>
+        <!-- HERO INTERNE -->
+        <section class="internal-hero">
+            <h1>Les Intervenants</h1>
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="index.html">Accueil</a> &gt; <span>Intervenants</span>
+            </nav>
         </section>
 
-        <!-- Section Chiffres clés -->
-        <section id="stats">
-            <div class="stat" data-target="1200">0</div>
-            <div class="stat" data-target="48">0</div>
-            <div class="stat" data-target="3">0</div>
-            <div class="stat" data-target="12">0</div>
+        <!-- FILTRAGE DYNAMIQUE -->
+        <section class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="ia">IA & Tech</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="data">Data</button>
+            </div>
         </section>
 
-        <!-- Pourquoi participer -->
-        <section id="why">
-            <article>...</article>
-            <article>...</article>
-            <article>...</article>
-        </section>
+        <!-- GRILLE D'INTERVENANTS -->
+        <section class="speakers-section">
+            <div class="speakers-grid-main" id="speakersGrid">
+                <!-- 9 cartes avec attribut data-category pour le filtre -->
+                <article class="speaker-card-main" data-category="ia">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Amina Diop">
+                    <h3>Amina Diop</h3>
+                    <p class="specialty">IA & Machine Learning</p>
+                    <p class="country">Sénégal</p>
+                </article>
 
-        <!-- Intervenants vedettes -->
-        <section id="speakers">
-            <!-- 4 cartes avec photo, nom, titre, pays -->
-        </section>
+                <article class="speaker-card-main" data-category="business">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Kwame Mensah">
+                    <h3>Kwame Mensah</h3>
+                    <p class="specialty">Business & Venture Capital</p>
+                    <p class="country">Ghana</p>
+                </article>
 
-        <!-- Sponsors -->
-        <section id="sponsors">
-            <div class="sponsor or">Or</div>
-            <div class="sponsor argent">Argent</div>
-            <div class="sponsor bronze">Bronze</div>
+                <article class="speaker-card-main" data-category="design">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Fatou Sylla">
+                    <h3>Fatou Sylla</h3>
+                    <p class="specialty">Product Design & UX</p>
+                    <p class="country">Côte d'Ivoire</p>
+                </article>
+
+                <article class="speaker-card-main" data-category="ia">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Tariq Yusuf">
+                    <h3>Tariq Yusuf</h3>
+                    <p class="specialty">Architecture Cloud & Sécurité</p>
+                    <p class="country">Maroc</p>
+                </article>
+
+                <article class="speaker-card-main" data-category="data">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Dr. Ousmane Kane">
+                    <h3>Dr. Ousmane Kane</h3>
+                    <p class="specialty">Data Science & Big Data</p>
+                    <p class="country">Mali</p>
+                </article>
+
+                <article class="speaker-card-main" data-category="business">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Zainab Alao">
+                    <h3>Zainab Alao</h3>
+                    <p class="specialty">Entrepreneuriat Tech</p>
+                    <p class="country">Nigéria</p>
+                </article>
+
+                <article class="speaker-card-main" data-category="design">
+                    <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=400&q=80" alt="Moussa Ndiaye">
+                    <h3>Moussa Ndiaye</h3>
+                    <p class="specialty">Design d'Interaction</p>
+                    <p class="country">Sénégal</p>
+                </article>
+
+                <article class="speaker-card-main" data-category="ia">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="Elena Mensah">
+                    <h3>Elena Mensah</h3>
+                    <p class="specialty">Recherche en IA Éthique</p>
+                    <p class="country">Togo</p>
+                </article>
+
+                <article class="speaker-card-main" data-category="data">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Samuel Koffi">
+                    <h3>Samuel Koffi</h3>
+                    <p class="specialty">Ingénierie de Données</p>
+                    <p class="country">Bénin</p>
+                </article>
+            </div>
         </section>
     </main>
-    <footer>
-        <div class="footer-col">...</div>
-        <div class="footer-col">...</div>
-        <div class="footer-col">...</div>
-        <p id="footer-year"></p>
-        <button id="back-to-top">↑</button>
+
+    <!-- FOOTER COMMUN -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>AfriConnect</h4>
+                <p>Le carrefour de l'écosystème numérique africain.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liens Rapides</h4>
+                <a href="index.html">Accueil</a>
+                <a href="programme.html">Programme</a>
+                <a href="intervenants.html">Intervenants</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> AfriConnect Summit. Tous droits réservés.</p>
+        </div>
+        <button id="scrollTopBtn" aria-label="Retour en haut de page"><i class="bi bi-arrow-up-short"></i></button>
     </footer>
 
-    
+    <script src="js/main.js"></script>
 </body>
 </html>
