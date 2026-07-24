@@ -467,3 +467,146 @@ tr:nth-child(even) {
         grid-template-columns: 1fr; /* Exigence : 1 colonne sur mobile */
     }
 }
+
+/* ==========================================================================
+   8. STYLE DES FORMULAIRES & COMPOSANTS SÉLECTIONNÉS (POUR LE MODE SOMBRE)
+   ========================================================================== */
+.form-group {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+/* Changement visuel immédiat lors du clic sur un champ */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.15);
+}
+
+/* Gestion du style des messages d'erreur du formulaire */
+.error-text {
+    font-size: 0.85rem;
+    color: #dc2626;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.success-message {
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+    font-weight: 600;
+    border: 1px solid #bbf7d0;
+}
+
+/* Ajustement de la couleur du message de succès si on est en Mode Sombre */
+[data-theme="dark"] .success-message {
+    background-color: #064e3b;
+    color: #a7f3d0;
+    border-color: #047857;
+}
+
+/* ==========================================================================
+   9. ACCORDÉON FAQ EN CSS PUR (Exigence : Aucun JavaScript ici)
+   ========================================================================== */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.accordion-item {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+/* On cache complètement la case à cocher native */
+.accordion-toggle {
+    display: none;
+}
+
+/* Style de l'en-tête cliquable (le label fait office de bouton) */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+/* Petit indicateur visuel + ou - à droite */
+.accordion-header::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: var(--accent);
+    transition: var(--transition-smooth);
+}
+
+/* Style du contenu textuel caché par défaut */
+.accordion-content {
+    max-height: 0; /* Hauteur à 0 pour le cacher */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out; /* Animation d'ouverture fluide exigée */
+    background-color: var(--bg-primary);
+}
+
+.accordion-content p {
+    padding: 0 24px 20px 24px;
+    color: var(--text-secondary);
+}
+
+/* --- LOGIQUE DE L'ACCORDÉON CSS PUR --- */
+/* Quand la case invisible est cochée (:checked), on cible l'élément juste après (+) */
+
+/* 1. On ouvre le contenu de manière animée */
+.accordion-toggle:checked ~ .accordion-content {
+    max-height: 200px; /* Donne une hauteur max suffisante pour afficher le texte */
+}
+
+/* 2. On transforme le "+" en "-" */
+.accordion-toggle:checked ~ .accordion-header::after {
+    content: "−";
+    transform: rotate(180deg);
+}
+
+/* 3. On met en valeur la bordure de la question active */
+.accordion-toggle:checked ~ .accordion-header {
+    color: var(--accent);
+}
