@@ -201,3 +201,269 @@ img {
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
+
+
+/* ==========================================================================
+   5. AGENCEMENTS COMPLEXES (CSS Grid & Flexbox) - EXIGENCE SUJET
+   ========================================================================== */
+
+/* --- FLEXBOX USAGES (Min 3 distincts demandés) --- */
+
+/* Usage Flexbox 1 : Structure du Footer */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    font-size: 1.5rem;
+}
+
+/* Usage Flexbox 2 : Section Pourquoi Participer */
+.why-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Usage Flexbox 3 : Section Formulaire de Contact & Sponsors */
+.contact-container {
+    display: flex;
+    gap: 50px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-form-side { flex: 2; }
+.contact-info-side { flex: 1; }
+
+.sponsor-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+
+/* --- CSS GRID USAGES (Min 2 distincts demandés) --- */
+
+/* Usage Grid 1 : Chiffres clés (Page Accueil) & Thématiques (Page Programme) */
+.stats-grid, .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.themes-grid {
+    grid-template-columns: repeat(2, 1fr); /* Grille 2x2 demandée pour les thématiques */
+}
+
+/* Usage Grid 2 : Grilles d'intervenants (Accueil & Page Intervenants) */
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 intervenants vedettes en ligne */
+    gap: 30px;
+    max-width: var(--max-width);
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+}
+
+.speakers-grid-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes desktop par défaut pour les 9 intervenants */
+    gap: 30px;
+    max-width: var(--max-width);
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+
+/* ==========================================================================
+   6. STYLISATION DES SECTIONS & DESIGN DES CARTES
+   ========================================================================== */
+section {
+    padding: 100px 0;
+}
+
+/* Hero Universel */
+.hero-home, .internal-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    padding: 0 20px;
+    padding-top: 80px;
+}
+
+.internal-hero {
+    min-height: 40vh;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    max-width: 900px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.hero-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+/* Compte à rebours */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    min-width: 100px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.countdown-item span {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: var(--font-titles);
+    color: var(--accent);
+}
+
+/* Cartes (Effets Hover obligatoires demandés) */
+.why-card, .stat-card, .speaker-card, .speaker-card-main, .theme-card {
+    background-color: var(--bg-secondary);
+    padding: 40px 30px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+}
+
+.speaker-card img, .speaker-card-main img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+}
+
+/* Effets Hover interactifs */
+.speaker-card:hover, .speaker-card-main:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.why-card i, .theme-card i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Tables de Programme stylisées */
+.table-responsive {
+    max-width: var(--max-width);
+    margin: 40px auto;
+    padding: 0 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 18px 24px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    font-family: var(--font-titles);
+}
+
+tr:nth-child(even) {
+    background-color: var(--bg-primary); /* Alternance de couleurs exigée */
+}
+
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (MEDIA QUERIES : 1200px, 768px, 375px) - EXIGENCE SUJET
+   ========================================================================== */
+
+/* --- TABLETTE (max-width: 1200px) et (max-width: 768px) --- */
+@media (max-width: 1200px) {
+    .hero-content h1 { font-size: 3rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+    .speakers-grid-main { grid-template-columns: repeat(2, 1fr); } /* Exigence : 2 colonnes tablette */
+}
+
+@media (max-width: 768px) {
+    section { padding: 60px 0; }
+    .why-flex { flex-direction: column; }
+    .contact-container { flex-direction: column; gap: 40px; }
+    
+    /* Cache les liens de navigation classiques pour faire place au futur menu Hamburger mobile */
+    .nav-links {
+        display: none; 
+    }
+    .hamburger { display: block; }
+}
+
+/* --- MOBILE (max-width: 375px) --- */
+@media (max-width: 375px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-ctas { flex-direction: column; gap: 12px; }
+    .countdown { gap: 10px; }
+    .countdown-item { min-width: 70px; padding: 10px; }
+    .countdown-item span { font-size: 1.8rem; }
+    
+    .stats-grid, .themes-grid, .speakers-grid, .speakers-grid-main { 
+        grid-template-columns: 1fr; /* Exigence : 1 colonne sur mobile */
+    }
+}
