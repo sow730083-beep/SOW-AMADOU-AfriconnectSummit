@@ -610,3 +610,28 @@ input:focus, select:focus, textarea:focus {
 .accordion-toggle:checked ~ .accordion-header {
     color: var(--accent);
 }
+
+/* --- Styles appliqués par le JS --- */
+
+/* Fond opaque et ombre sur la navbar quand on défile */
+.main-header.scrolled {
+    background-color: var(--bg-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--border-color);
+}
+.main-header.scrolled .navbar {
+    padding: 12px 20px; /* La navbar se rétrécit légèrement au défilement pour un effet premium */
+}
+
+/* Visibilité des tableaux du programme */
+.tab-panel {
+    display: none; /* Caché par défaut */
+}
+.tab-panel.active {
+    display: block; /* Visible uniquement si actif */
+}
+.tab-btn.active {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
