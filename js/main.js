@@ -9,9 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // ==========================================================================
-    // 2. NAVBAR DYNAMIQUE AU DÉFILEMENT (Exigence Sujet)
-    // ==========================================================================
+        // 2. NAVBAR DYNAMIQUE AU DÉFILEMENT 
     const header = document.querySelector(".main-header");
     
     window.addEventListener("scroll", () => {
@@ -39,11 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     themeToggleBtn.addEventListener("click", () => {
-        // On récupère le thème actuel
+        // recuperation du theme actuel
         const currentTheme = htmlElement.getAttribute("data-theme");
         let newTheme = "light";
         
-        // Si on est en light, on passe en dark, et inversement
+        // passage de mode dark et light
         if (currentTheme !== "dark") {
             newTheme = "dark";
         }
@@ -134,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Remonte en douceur au clic
+    
         scrollTopBtn.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
@@ -235,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 fullName.value.trim() !== ""
             );
 
-            // 2. Validation de l'Email (Regex standard de vérification de format)
+            // 2. validation email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             validateField(
                 email, 
@@ -321,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Calculs mathématiques pour convertir le temps
+        // convertions mathematique du temps
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
